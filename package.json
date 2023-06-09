@@ -6,5 +6,8 @@
   "author": "GianfrancoBazzani <bazzanigianfranco@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["contracts", "client"]
+  "workspaces": [
+    "contracts",
+    "client"
+  ]
 }
