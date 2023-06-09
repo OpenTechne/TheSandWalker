@@ -1,0 +1,11 @@
+{
+  "name": "thesandwalkerscripts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+ 
+  },
+  "dependencies": {
+    "starknet": "^4.22.0"
+  }
+}
