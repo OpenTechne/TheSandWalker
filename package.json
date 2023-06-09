@@ -1,0 +1,10 @@
+{
+  "name": "TheSandWalker",
+  "version": "1.0.0",
+  "description": "EthPrague 2023 Hackaton project",
+  "repository": "git@github.com:OpenTechne/TheSandWalker.git",
+  "author": "GianfrancoBazzani <bazzanigianfranco@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["contracts", "client"]
+}
