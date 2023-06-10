@@ -2,6 +2,11 @@
 mod TheSandWalker {
     use starknet::ContractAddress;
     use starknet::get_caller_address;
+    use traits::Into;
+    use starknet::contract_address::Felt252TryIntoContractAddress;
+    use traits::TryInto;
+    use option::OptionTrait;
+
 
     #[storage]
     struct Storage {
@@ -17,8 +22,9 @@ mod TheSandWalker {
     }
 
     #[constructor]
-    fn constructor(ref self: Storage) {
-        self.owner.write(get_caller_address());
+    fn constructor(ref self: Storage, _owner_felt: felt252) {
+        let _owner: ContractAddress = _owner_felt.try_into().unwrap();
+        self.owner.write(_owner);
     }
 
     #[view]
