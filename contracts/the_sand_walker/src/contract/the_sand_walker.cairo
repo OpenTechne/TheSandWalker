@@ -63,8 +63,9 @@ mod TheSandWalker {
         let level: ContractAddress = instance_level::read(instance);
 
         // check if pwned
-        if(ILevelDispatcher { contract_address: level}.submit_instance(instance)){
+        if(ILevelDispatcher { contract_address: level}.check_instance(instance)){
             // Congrats you pwn the level 
+            is_instace_pwn::write(instance, true)
             // TODO: EMIT EVENT
         } else {
             // TODO: change the assert with event emission to track failed submissions
@@ -77,7 +78,7 @@ mod TheSandWalker {
         // Deploy instance and returns instance address
         fn create_instance() -> ContractAddress;
         // Checks if instnace is pwnd and returns true or false
-        fn submit_instance(instance: ContractAddress) -> bool;
+        fn check_instance(instance: ContractAddress) -> bool;
     }
 }
 
