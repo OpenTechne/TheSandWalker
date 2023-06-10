@@ -1,5 +1,6 @@
 [package]
-name = "hello_starknet"
+name = "contracts"
 version = "0.1.0"
 
 [dependencies]
+the_sand_walker = { path = "the_sand_walker" }

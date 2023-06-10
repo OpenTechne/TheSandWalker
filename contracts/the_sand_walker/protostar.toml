@@ -2,5 +2,5 @@
 protostar-version = "0.13.0"
 
 [contracts]
-the_sand_walker = ["the_sand_walker/src"]
+the_sand_walker = ["src"]
 
