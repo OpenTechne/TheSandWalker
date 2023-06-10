@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import Link from 'next/link'
+import Start from "@/components/Buttons/Start";
 import TryLevel from "@/components/Buttons/TryLevel";
 
-export default function Levels() {
+export default function LevelsPage() {
   return (
     <div>
       <div className="relative flex h-screen flex-col items-center gap-5 justify-center bg-levels bg-cover">

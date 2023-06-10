@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <Start page={1} />
       </div>
-      <Levels />
+      
     </main>
   );
 }
