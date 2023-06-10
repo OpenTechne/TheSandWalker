@@ -1,43 +1,46 @@
 use core::option::OptionTrait;
-#[contract]
+#[starknet::contract]
 mod Level1Factory {
-    use level1_code::contract::level1_code::Level1Code;
-    use level1_code::contract::level1_code::Level1Code::ILevel1CodeDispatcher;
-    use level1_code::contract::level1_code::Level1Code::ILevel1CodeDispatcherTrait;
+    use super::Level1Code;
+    use super::Level1Code::ILevel1CodeDispatcher;
+    use super::Level1Code::ILevel1CodeDispatcherTrait;
+    use array::ArrayTrait;
     use starknet::class_hash::ClassHash;
     use starknet::class_hash::class_hash_try_from_felt252;
     use starknet::ContractAddress;
     use starknet::get_caller_address;
     use starknet::deploy_syscall;
+    use starknet::SyscallResult;
     use option::OptionTrait;
 
 
-
+    #[storage]
     struct Storage {
         owner: ContractAddress,
         level1_code_class_hash: ClassHash,
     }
 
     #[constructor]
-    fn constructor() {
-        owner::write(get_caller_address());
+    fn constructor(ref self: Storage) {
+        self.owner.write(get_caller_address());
     }
 
     #[external]
-    fn set_level1_code_class_hash(class_hash_felt252: felt252){
-        assert(get_caller_address() == owner::read(), 'only owner');
+    fn set_level1_code_class_hash(ref self: Storage, class_hash_felt252: felt252){
+        assert(get_caller_address() == self.owner.read(), 'only owner');
         let _class_hash: ClassHash = class_hash_try_from_felt252(class_hash_felt252).unwrap(); 
-        level1_code_class_hash::write(_class_hash);
+        self.level1_code_class_hash.write(_class_hash);
     }
 
     // Deploy instance and returns instance address
-    fn create_instance() -> ContractAddress {
-
+    #[external]
+    fn create_instance(ref self: Storage) {
+        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false);
     }
 
     // Checks if instnace is pwnd and returns true or false
     #[external]
-    fn check_instance(instance: ContractAddress) -> bool {
+    fn check_instance(ref self: Storage, instance: ContractAddress) -> felt252 {
         ILevel1CodeDispatcher { contract_address: instance}.get_is_gate_open()
     }
 }
@@ -54,3 +57,52 @@ mod Level1Factory {
 //    calldata: Span<felt252>,
 //    deploy_from_zero: bool,
 //) -> SyscallResult<(ContractAddress, Span<felt252>)> implicits(GasBuiltin, System) nopanic;
+
+
+#[starknet::contract]
+mod Level1Code {
+    use starknet::get_block_timestamp;
+    use starknet::syscalls::keccak_syscall;
+    use traits::Into;
+    use array::ArrayTrait;
+    use core::result::ResultTrait;
+
+    #[storage]    
+    struct Storage {
+        secret_word: u64,
+        gate_creation_timestamp: u64,
+        is_gate_open: felt252,
+    }
+
+    #[constructor]
+    fn constructor(ref self: Storage) {
+        let timestamp: u64 = get_block_timestamp().into();
+        
+        self.secret_word.write(timestamp);
+    }
+
+    #[external]
+    fn open_gate(ref self: Storage ,_secret_word: u64) {
+        assert(get_block_timestamp() > self.gate_creation_timestamp.read(), 'too fast');
+        assert(self.secret_word.read() == _secret_word, 'the secret is wrong');
+
+        self.is_gate_open.write(1);
+    }
+
+    #[view]
+    fn get_is_gate_open(ref self: Storage)-> felt252 {
+        self.is_gate_open.read()
+    } 
+
+    #[starknet::interface]
+    trait ILevel1Code {
+        // Deploy instance and returns instance address
+        fn open_gate(ref self: Storage ,_secret_word: u256);
+        // Checks if instnace is pwnd and returns true or false
+        fn get_is_gate_open(ref self: Storage)-> felt252;
+    }
+
+
+}
+
+

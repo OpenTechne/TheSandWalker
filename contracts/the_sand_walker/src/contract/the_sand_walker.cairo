@@ -22,7 +22,7 @@ mod TheSandWalker {
         self.owner.write(get_caller_address());
     }
 
-    #[external]
+    #[view]
     fn get_owner(ref self: Storage) -> ContractAddress{
         self.owner.read()
     }
