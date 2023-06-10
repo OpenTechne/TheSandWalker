@@ -4,3 +4,5 @@ version = "0.1.0"
 
 [dependencies]
 the_sand_walker = { path = "the_sand_walker" }
+level1 = { path = "level1" }
+

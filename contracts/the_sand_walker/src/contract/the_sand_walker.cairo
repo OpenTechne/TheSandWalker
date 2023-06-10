@@ -1,17 +1,23 @@
 #[contract]
 mod TheSandWalker {
-    // Core Library Imports
     use starknet::ContractAddress;
     use starknet::get_caller_address;
 
     struct Storage {
         owner: ContractAddress,
+        // level -> bool
         registered_level: LegacyMap::<ContractAddress, bool>,
+        // Instance -> player
+        instance_player: LegacyMap::<ContractAddress, ContractAddress>,
+        // Instance -> level
+        instance_level: LegacyMap::<ContractAddress, ContractAddress>,
+        // Instance -> true
+        is_instace_pwn: LegacyMap::<ContractAddress, bool>
     }
 
     #[constructor]
-    fn constructor(_owner: ContractAddress) {
-        owner::write(_owner);
+    fn constructor() {
+        owner::write(get_caller_address());
     }
 
     #[external]
@@ -30,10 +36,51 @@ mod TheSandWalker {
         registered_level::read(level)
     }
 
-    // Players functoins
-    // #[external]
-    // fn deploy_instance(level: ContractAddress) -> felt252 {
-    //    
-    // }
-    
+    // Players funcs
+    #[external]
+    fn create_instance(level: ContractAddress) -> ContractAddress {
+        // deploy instance for player
+        let instance_address: ContractAddress = ILevelDispatcher { contract_address: level}.create_instance();
+
+        // bind player address to instance
+        instance_player::write(instance_address, get_caller_address());
+
+        // bind instance to level
+        instance_level::write(instance_address, level);
+
+        // TODO: EMIT EVENT "NeInstance"
+
+        // return instance address
+        instance_address
+    }
+
+    #[external]
+    fn submit_instance(instance: ContractAddress) {
+        // check if instance is already pwn
+        assert(is_instace_pwn::read(instance) == false, ' instance already pwned ');
+        // check if instance corresponds to caller
+        assert(get_caller_address() == instance_player::read(instance) , 'this is not your instance');
+        
+        // get level of instance
+        let level: ContractAddress = instance_level::read(instance);
+
+        // check if pwned
+        if(ILevelDispatcher { contract_address: level}.check_instance(instance)){
+            // Congrats you pwn the level 
+            is_instace_pwn::write(instance, true)
+            // TODO: EMIT EVENT
+        } else {
+            // TODO: change the assert with event emission to track failed submissions
+            assert(false, 'level not pwn')
+        }
+    }
+
+    #[abi]
+    trait ILevel {
+        // Deploy instance and returns instance address
+        fn create_instance() -> ContractAddress;
+        // Checks if instnace is pwnd and returns true or false
+        fn check_instance(instance: ContractAddress) -> bool;
+    }
 }
+

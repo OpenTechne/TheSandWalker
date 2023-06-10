@@ -3,4 +3,7 @@ protostar-version = "0.13.0"
 
 [contracts]
 the_sand_walker = ["the_sand_walker/src"]
+level1_factory = ["level1/level1_factory/src"]
+level1_code = ["level1/level1_code/src"]
+
 

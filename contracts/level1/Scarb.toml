@@ -1,0 +1,8 @@
+[package]
+name = "level1"
+version = "0.1.0"
+
+[dependencies]
+level1_factory = { path = "level1_factory" }
+level1_code = { path = "level1_code" }
+
