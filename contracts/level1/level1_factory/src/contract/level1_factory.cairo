@@ -1,5 +1,5 @@
 #[contract]
-mod Level1 {
+mod Level1Factory {
     // Deploy instance and returns instance address
     // fn create_instance() -> ContractAddress {
 
@@ -12,9 +12,6 @@ mod Level1 {
 
     
 }
-
-
-
 
     // #[abi]
     // trait ILevel {

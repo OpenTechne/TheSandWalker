@@ -2,5 +2,6 @@
 protostar-version = "0.13.0"
 
 [contracts]
-level1 = ["src"]
+level1_factory = ["level1_factory/src"]
+level1_code = ["level1_code/src"]
 
