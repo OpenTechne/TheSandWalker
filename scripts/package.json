@@ -2,10 +2,14 @@
   "name": "thesandwalkerscripts",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
- 
+    "connect_test_contract:starknet": "node connect_test_contract.js",
+    "deploy:starknet": "node deploy.js"
   },
   "dependencies": {
+    "dotenv": "^16.1.4",
+    "fs": "^0.0.1-security",
     "starknet": "^4.22.0"
   }
 }
