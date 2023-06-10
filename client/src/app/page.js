@@ -14,8 +14,9 @@ export default function Home() {
           <span className="text-4xl text-center font-bold text-white [text-shadow:_2px_2px_2px_rgb(0_0_0_/_20%)] lg:text-7xl py-10 sandwalker">The SandWalker</span>
         </div>
         <Start page={1} />
+       
       </div>
-      
+      <Levels />
     </main>
   );
 }
