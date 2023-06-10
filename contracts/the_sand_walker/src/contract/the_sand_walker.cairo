@@ -1,8 +1,10 @@
-#[contract]
+
+#[starknet::contract]
 mod TheSandWalker {
     use starknet::ContractAddress;
     use starknet::get_caller_address;
 
+    #[storage]
     struct Storage {
         owner: ContractAddress,
         // level -> bool
@@ -16,37 +18,37 @@ mod TheSandWalker {
     }
 
     #[constructor]
-    fn constructor() {
-        owner::write(get_caller_address());
+    fn constructor(ref self: Storage) {
+        self.owner.write(get_caller_address());
     }
 
     #[external]
-    fn get_owner() -> ContractAddress{
-        owner::read()
+    fn get_owner(ref self: Storage) -> ContractAddress{
+        self.owner.read()
     }
 
     #[external]
-    fn register_level(level: ContractAddress) {
-        assert(get_caller_address() == owner::read(), 'only owner');
-        registered_level::write(level, true);
+    fn register_level(ref self: Storage, level: ContractAddress) {
+        assert(get_caller_address() == self.owner.read(), 'only owner');
+        self.registered_level.write(level, true);
     }
 
     #[view]
-    fn is_registered_level(level: ContractAddress) -> bool {
-        registered_level::read(level)
+    fn is_registered_level(ref self: Storage ,level: ContractAddress) -> bool {
+        self.registered_level.read(level)
     }
 
     // Players funcs
     #[external]
-    fn create_instance(level: ContractAddress) -> ContractAddress {
+    fn create_instance(ref self: Storage, level: ContractAddress) -> ContractAddress {
         // deploy instance for player
         let instance_address: ContractAddress = ILevelDispatcher { contract_address: level}.create_instance();
 
         // bind player address to instance
-        instance_player::write(instance_address, get_caller_address());
+        self.instance_player.write(instance_address, get_caller_address());
 
         // bind instance to level
-        instance_level::write(instance_address, level);
+        self.instance_level.write(instance_address, level);
 
         // TODO: EMIT EVENT "NeInstance"
 
@@ -55,19 +57,19 @@ mod TheSandWalker {
     }
 
     #[external]
-    fn submit_instance(instance: ContractAddress) {
+    fn submit_instance(ref self: Storage, instance: ContractAddress) {
         // check if instance is already pwn
-        assert(is_instace_pwn::read(instance) == false, ' instance already pwned ');
+        assert(self.is_instace_pwn.read(instance) == false, ' instance already pwned ');
         // check if instance corresponds to caller
-        assert(get_caller_address() == instance_player::read(instance) , 'this is not your instance');
+        assert(get_caller_address() == self.instance_player.read(instance) , 'this is not your instance');
         
         // get level of instance
-        let level: ContractAddress = instance_level::read(instance);
+        let level: ContractAddress = self.instance_level.read(instance);
 
         // check if pwned
         if(ILevelDispatcher { contract_address: level}.check_instance(instance)){
             // Congrats you pwn the level 
-            is_instace_pwn::write(instance, true)
+            self.is_instace_pwn.write(instance, true)
             // TODO: EMIT EVENT
         } else {
             // TODO: change the assert with event emission to track failed submissions
@@ -75,12 +77,12 @@ mod TheSandWalker {
         }
     }
 
-    #[abi]
+    #[starknet::interface]
     trait ILevel {
         // Deploy instance and returns instance address
-        fn create_instance() -> ContractAddress;
+        fn create_instance(ref self: Storage) -> ContractAddress;
         // Checks if instnace is pwnd and returns true or false
-        fn check_instance(instance: ContractAddress) -> bool;
+        fn check_instance(ref self: Storage, instance: ContractAddress) -> bool;
     }
 }
 
