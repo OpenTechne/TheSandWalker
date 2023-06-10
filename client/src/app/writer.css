@@ -2,12 +2,12 @@ body{
   background:#111011;
   color:white;
 }
-span{
+.sandwalker{
   display: block;
   white-space:nowrap;/*esto hace que el texto no se rompa por los espacios en blanco*/
   border-right:4px solid white; /*esto representa el puntero que muestra que se esta escribiendo*/
   width:30ch; /*este ancho debe ser igual al numero de caracteres que tenga nuestro texto*/
-  animation:typing 4s infinite steps(13) , blink .3s infinite step-end alternate;
+  animation:typing 4s infinite steps(15) , blink .3s infinite step-end alternate;
   overflow:hidden;
   animation-delay:4s;
   
@@ -15,7 +15,7 @@ span{
 @keyframes typing {
   from {
     width:0;
-    transition:2s;
+    transition:1s;
   }
 }
 @keyframes blink {
