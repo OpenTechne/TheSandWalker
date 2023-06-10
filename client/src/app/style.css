@@ -1,22 +1,22 @@
 .marquee {
   margin-top: 2rem;
   position: absolute;
-  opacity: 50%;
-  background-color: blueviolet;
+  background-color: rgb(255 255 255 / 0.25);
   border-top: .2rem solid white;
   border-bottom: .2rem solid white;
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
   padding: 1rem 0;
+  font-size: 1rem;
 }
 .content{
-  color: black;
+  color: white;
 }
 .track {
   white-space: nowrap;
   will-change: transform;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
