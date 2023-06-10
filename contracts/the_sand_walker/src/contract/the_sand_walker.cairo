@@ -56,6 +56,8 @@ mod TheSandWalker {
 
     #[external]
     fn submit_instance(instance: ContractAddress) {
+        // check if instance is already pwn
+        assert(is_instace_pwn::read(instance) == false, ' instance already pwned ');
         // check if instance corresponds to caller
         assert(get_caller_address() == instance_player::read(instance) , 'this is not your instance');
         
