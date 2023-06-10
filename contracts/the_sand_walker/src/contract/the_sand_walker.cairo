@@ -7,14 +7,14 @@ mod TheSandWalker {
     #[storage]
     struct Storage {
         owner: ContractAddress,
-        // level -> bool
-        registered_level: LegacyMap::<ContractAddress, bool>,
+        // level -> felt252"bool"
+        registered_level: LegacyMap::<ContractAddress, felt252>,
         // Instance -> player
         instance_player: LegacyMap::<ContractAddress, ContractAddress>,
         // Instance -> level
         instance_level: LegacyMap::<ContractAddress, ContractAddress>,
         // Instance -> true
-        is_instace_pwn: LegacyMap::<ContractAddress, bool>
+        is_instace_pwn: LegacyMap::<ContractAddress, felt252>
     }
 
     #[constructor]
@@ -30,11 +30,11 @@ mod TheSandWalker {
     #[external]
     fn register_level(ref self: Storage, level: ContractAddress) {
         assert(get_caller_address() == self.owner.read(), 'only owner');
-        self.registered_level.write(level, true);
+        self.registered_level.write(level, 1);
     }
 
     #[view]
-    fn is_registered_level(ref self: Storage ,level: ContractAddress) -> bool {
+    fn is_registered_level(ref self: Storage ,level: ContractAddress) -> felt252 {
         self.registered_level.read(level)
     }
 
@@ -59,7 +59,7 @@ mod TheSandWalker {
     #[external]
     fn submit_instance(ref self: Storage, instance: ContractAddress) {
         // check if instance is already pwn
-        assert(self.is_instace_pwn.read(instance) == false, ' instance already pwned ');
+        assert(self.is_instace_pwn.read(instance) == 0, ' instance already pwned ');
         // check if instance corresponds to caller
         assert(get_caller_address() == self.instance_player.read(instance) , 'this is not your instance');
         
@@ -67,9 +67,9 @@ mod TheSandWalker {
         let level: ContractAddress = self.instance_level.read(instance);
 
         // check if pwned
-        if(ILevelDispatcher { contract_address: level}.check_instance(instance)){
+        if(ILevelDispatcher { contract_address: level}.check_instance(instance) == 1){
             // Congrats you pwn the level 
-            self.is_instace_pwn.write(instance, true)
+            self.is_instace_pwn.write(instance, 1)
             // TODO: EMIT EVENT
         } else {
             // TODO: change the assert with event emission to track failed submissions
@@ -82,7 +82,7 @@ mod TheSandWalker {
         // Deploy instance and returns instance address
         fn create_instance(ref self: Storage) -> ContractAddress;
         // Checks if instnace is pwnd and returns true or false
-        fn check_instance(ref self: Storage, instance: ContractAddress) -> bool;
+        fn check_instance(ref self: Storage, instance: ContractAddress) -> felt252;
     }
 }
 
