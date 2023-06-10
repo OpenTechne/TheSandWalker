@@ -10,7 +10,7 @@ module.exports = {
       backgroundImage: theme =>( {
         'home': "url('/background.jpg')",
         'levels': "url('/levels.jpg')",
-        'level1': "url('/level1.jpg')",
+        'level-one': "url('/level-one.jpg')",
       }),
     },
   },
