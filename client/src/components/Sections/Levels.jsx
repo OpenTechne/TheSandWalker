@@ -19,29 +19,19 @@ export default function Levels() {
         
       </div>
       <div className="flex max-w-2xl flex-col items-center justify-center rounded-3xl border-2 border-white bg-white/30 p-8 shadow-md backdrop-blur-lg">
-        <h2 className="pb-3 text-5xl font-bold text-white [text-shadow:_1px_1px_1px_rgb(0_0_0_/_20%)]">LEVELS</h2>
+        <h2 className="pb-3 text-5xl font-bold text-white [text-shadow:_1px_1px_1px_rgb(0_0_0_/_20%)]">GAME LEVELS</h2>
         <p className="px-10 text-center font-medium text-orange-800">Levels from 1 to...</p>
 
-        <div className="bg-amber-600 relative flex-column text-center flex-wrap items-center justify-center">
-        <p>Levels</p>
-        <ul className="flex flex-row bg-slate-300 p-5 gap-3">
-          <li className="bg-white">
-            <p>Level 1</p>
-          </li>
-          <li className="bg-white">
-            <p>Level 2</p>
-            <p>In this level...</p>
-          </li>
-          <li className="bg-white">
-            <p>Level 3</p>
-            <p>In this level...</p>
-          </li>
-          <li className="bg-white">
-            <p>Level 4</p>
-            <p>In this level...</p>
-          </li>
-        </ul>
-        </div>
+        <p className="rounded-3xl border border-white bg-white/40 p-3 text-center leading-6 text-orange-800 shadow-md backdrop-blur-md lg:p-6 lg:text-lg lg:font-medium">
+          LEVEL 1
+        </p>
+        <p className="rounded-3xl border border-white bg-white/40 p-3 text-center leading-6 text-orange-800 shadow-md backdrop-blur-md lg:p-6 lg:text-lg lg:font-medium">
+          LEVEL 2
+        </p>
+        <p className="rounded-3xl border border-white bg-white/40 p-3 text-center leading-6 text-orange-800 shadow-md backdrop-blur-md lg:p-6 lg:text-lg lg:font-medium">
+          LEVEL 3
+        </p>
+        
         </div>
       </div>
       
