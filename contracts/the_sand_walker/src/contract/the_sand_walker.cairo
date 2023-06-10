@@ -67,7 +67,7 @@ mod TheSandWalker {
             // Congrats you pwn the level 
             // TODO: EMIT EVENT
         } else {
-            // TODO: change the folowing assert with event emission
+            // TODO: change the assert with event emission to track failed submissions
             assert(false, 'level not pwn')
         }
     }
