@@ -10,7 +10,7 @@ export default function TryLevel(props) {
           window.location.href = "/level1";
         }}
       >
-        Try level
+        Play level
       </button>
     </div>
   );

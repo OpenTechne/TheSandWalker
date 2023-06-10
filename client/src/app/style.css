@@ -1,13 +1,13 @@
 .marquee {
   margin-top: 1rem;
   position: absolute;
-  background-color: black;
   border-top: 0.2rem solid white;
   border-bottom: 0.2rem solid white;
   width: 100vw;
   max-width: 100%;
   padding: .5rem 0;
   font-size: 1rem;
+  color: rgb(100, 44, 0);
   overflow: hidden
 }
 .track {
