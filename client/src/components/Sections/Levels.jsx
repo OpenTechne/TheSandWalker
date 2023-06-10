@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
+import Start from "@/components/Buttons/Start";
 
 export default function Levels() {
   return (
     <div>
-      <div className="relative flex-column text-center flex-wrap items-center justify-center pt-5 lg:flex-nowrap bg-levels bg-cover">
+      <div className="relative flex h-screen flex-col items-center justify-center bg-levels bg-cover">
+      <div className="relative flex-column text-center flex-wrap items-center justify-center pt-5 lg:flex-nowrap">
         <p>Introduction</p>
         <span>This game consists of...</span>
       </div>
@@ -28,7 +30,9 @@ export default function Levels() {
             <p>In this level...</p>
           </li>
         </ul>
+        </div>
       </div>
     </div>
+    
   );
 }
