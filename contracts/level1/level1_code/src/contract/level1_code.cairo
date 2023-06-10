@@ -1,5 +1,4 @@
-
-#[contract]
+#[starknet::contract]
 mod Level1Code {
     use starknet::get_block_timestamp;
     use starknet::syscalls::keccak_syscall;
@@ -7,6 +6,7 @@ mod Level1Code {
     use array::ArrayTrait;
     use core::result::ResultTrait;
 
+    #[storage]
     struct Storage {
         secret_word: u256,
         gate_creation_timestamp: u64,
@@ -14,7 +14,7 @@ mod Level1Code {
     }
 
     #[constructor]
-    fn constructor() {
+    fn constructor(ref self: Storage) {
         let timestamp: u64 = get_block_timestamp().into();
         let mut secret_codex = ArrayTrait::new();
         let mut counter: u8 = 0;
@@ -32,18 +32,18 @@ mod Level1Code {
 
         let secret = keccak_syscall(secret_codex.span()).unwrap();
 
-        secret_word::write(secret);
+        self.secret_word.write(secret);
     }
 
-    fn open_gate(_secret_word: u256) {
-        assert(get_block_timestamp() > gate_creation_timestamp::read(), 'too fast');
-        assert(secret_word::read() == _secret_word, 'the secret is wrong');
+    fn open_gate(ref self: Storage, _secret_word: u256) {
+        assert(get_block_timestamp() > self.gate_creation_timestamp.read(), 'too fast');
+        assert(self.secret_word.read() == _secret_word, 'the secret is wrong');
 
-        is_gate_open::write(true);
+        self.is_gate_open.write(true);
     }
 
-    fn get_is_gate_open()-> bool {
-        is_gate_open::read()
+    fn get_is_gate_open(ref self: Storage)-> bool {
+        self.is_gate_open.read()
     }
     // Deploy instance and returns instance address
     

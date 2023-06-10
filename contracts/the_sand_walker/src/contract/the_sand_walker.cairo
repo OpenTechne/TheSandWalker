@@ -1,8 +1,9 @@
-#[contract]
+#[starknet::contract]
 mod TheSandWalker {
     use starknet::ContractAddress;
     use starknet::get_caller_address;
 
+    #[storage]
     struct Storage {
         owner: ContractAddress,
         // level -> bool
@@ -75,7 +76,7 @@ mod TheSandWalker {
         }
     }
 
-    #[abi]
+    #[starknet::interface]
     trait ILevel {
         // Deploy instance and returns instance address
         fn create_instance() -> ContractAddress;
