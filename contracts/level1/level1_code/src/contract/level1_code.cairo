@@ -35,6 +35,7 @@ mod Level1Code {
         secret_word::write(secret);
     }
 
+    #[external]
     fn open_gate(_secret_word: u256) {
         assert(get_block_timestamp() > gate_creation_timestamp::read(), 'too fast');
         assert(secret_word::read() == _secret_word, 'the secret is wrong');
@@ -42,27 +43,18 @@ mod Level1Code {
         is_gate_open::write(true);
     }
 
+    #[view]
     fn get_is_gate_open()-> bool {
         is_gate_open::read()
+    } 
+
+    #[abi]
+    trait ILevel1Code {
+        // Deploy instance and returns instance address
+        fn open_gate(_secret_word: u256);
+        // Checks if instnace is pwnd and returns true or false
+        fn get_is_gate_open()-> bool;
     }
-    // Deploy instance and returns instance address
-    
-    // fn create_instance() -> ContractAddress {
 
-    // }
 
-    // // Checks if instnace is pwnd and returns true or false
-    // fn check_instance(instance: ContractAddress) -> bool {
-
-    // }
-
-    
 }
-
-    // #[abi]
-    // trait ILevel {
-    //     // Deploy instance and returns instance address
-    //     fn create_instance() -> ContractAddress;
-    //     // Checks if instnace is pwnd and returns true or false
-    //     fn submit_instance(instance: ContractAddress) -> bool;
-    // }
