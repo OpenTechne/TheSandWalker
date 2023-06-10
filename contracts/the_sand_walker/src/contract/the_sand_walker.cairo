@@ -16,8 +16,8 @@ mod TheSandWalker {
     }
 
     #[constructor]
-    fn constructor(_owner: ContractAddress) {
-        owner::write(_owner);
+    fn constructor() {
+        owner::write(get_caller_address());
     }
 
     #[external]
