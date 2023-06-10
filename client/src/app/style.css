@@ -1,15 +1,19 @@
-.marquee{
-  width: 100vw;
-  max-width: 100%;
-  margin-top: 2rem;
+.marquee {
+  margin-top: 1rem;
   position: absolute;
   background-color: black;
-  padding: 1rem 0;
+  border-top: 0.2rem solid white;
+  border-bottom: 0.2rem solid white;
+  width: 100vw;
+  max-width: 100%;
+  padding: .5rem 0;
+  font-size: 1rem;
 }
-.animation {
-  /* animation: marquee 15s linear infinite; */
+.track {
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 20s linear infinite;
 }
-
 @keyframes marquee {
   100% {
     transform: translateX(-100%);
