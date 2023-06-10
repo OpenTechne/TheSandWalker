@@ -2,7 +2,7 @@ body{
   background:#111011;
   color:white;
 }
-span{
+.sandwalker{
   display: block;
   white-space:nowrap;/*esto hace que el texto no se rompa por los espacios en blanco*/
   border-right:4px solid white; /*esto representa el puntero que muestra que se esta escribiendo*/
