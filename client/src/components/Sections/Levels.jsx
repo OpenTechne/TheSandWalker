@@ -29,12 +29,12 @@ export default function Levels() {
             </li>
             <li className="rounded-3xl border-white bg-white/30 p-3 text-center text-white shadow-md backdrop-blur-md lg:p-5 lg:text-lg">
             <p className="text-3xl p-2">LVL 2</p>
-            <Image src="/level1.jpg" width={600} height={600} />
+            <Image src="/unlocked.jpg" width={600} height={600} />
               <p className="text-xs p-5">In this game you should be able to escape from the pyramids of the desert. Let's see if you can crack the code!</p>
             </li>
             <li className="rounded-3xl border-white bg-white/30 p-3 text-center text-white shadow-md backdrop-blur-md lg:p-5 lg:text-lg">
             <p className="text-3xl p-2">LVL 3</p>
-            <Image src="/level1.jpg" width={600} height={600} />
+            <Image src="/unlocked.jpg" width={600} height={600} />
               <p className="text-xs p-5">In this game you should be able to escape from the pyramids of the desert. Let's see if you can crack the code!</p>
             </li>
             </ul>
