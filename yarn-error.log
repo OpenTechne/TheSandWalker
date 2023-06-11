@@ -1,0 +1,40 @@
+Arguments: 
+  /Users/adry/.nvm/versions/node/v15.14.0/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/adry/.local/share/fig/plugins/git-open:/opt/miniconda3/bin:/opt/miniconda3/condabin:/Users/adry/.nvm/versions/node/v15.14.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/adry/.cargo/bin:/Users/adry/.fig/bin:/Users/adry/.local/bin:/Users/adry/.nargo/bin:/Users/adry/.spicetify
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  15.14.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/adry/Developer/ETHPrague_Hackathon/TheSandWalker/contracts/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:310:30)
+      at /opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "TheSandWalker",
+    "version": "1.0.0",
+    "description": "EthPrague 2023 Hackaton project",
+    "repository": "git@github.com:OpenTechne/TheSandWalker.git",
+    "author": "GianfrancoBazzani <bazzanigianfranco@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "workspaces": ["contracts", "client"]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

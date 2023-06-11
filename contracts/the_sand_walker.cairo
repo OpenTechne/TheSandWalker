@@ -45,7 +45,7 @@ mod TheSandWalker {
 
     // Players funcs
     #[external]
-    fn create_instance(ref self: Storage, level: ContractAddress) -> felt252 {
+    fn create_instance(ref self: Storage, level: felt252) -> ContractAddress {
         // deploy instance for player
         let instance_address: ContractAddress = ILevelDispatcher { contract_address: level}.create_instance();
 

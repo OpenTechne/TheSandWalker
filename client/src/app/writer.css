@@ -1,0 +1,24 @@
+body{
+  background:#111011;
+  color:rgb(255, 236, 179);
+}
+.sandwalker{
+  display: block;
+  white-space:nowrap;/*esto hace que el texto no se rompa por los espacios en blanco*/
+  border-right:10px solid rgb(255, 236, 179);/*esto representa el puntero que muestra que se esta escribiendo*/
+  width:14ch; /*este ancho debe ser igual al numero de caracteres que tenga nuestro texto*/
+  animation: typing 3s 1 steps(14) , blink .3s infinite step-end alternate;
+  overflow:hidden;
+  text-shadow: 5px 5px 5px rgb(100, 44, 0);
+  color:rgb(255, 236, 179);
+}
+@keyframes typing {
+  from {
+    width:0;
+    transition:1s;
+  }
+}
+@keyframes blink {
+  50% {border-color:transparent}
+}
+
