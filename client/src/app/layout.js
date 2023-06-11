@@ -1,10 +1,13 @@
+import './globals.css'
+import { Inter, Press_Start_2P } from 'next/font/google'
+
 const links = [{
   label: 'Level 1',
   route: '/level1'
 }]
 
-import './globals.css'
-import { Inter, Press_Start_2P } from 'next/font/google'
+
+
  
 export const inter = Inter({
   subsets: ['latin'],
