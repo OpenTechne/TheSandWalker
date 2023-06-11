@@ -11,7 +11,7 @@ import { Provider, Contract, Account, ec, json } from "starknet";
 
 
 
-let CONTRACT_ADDRESS = "0x07788534312cf58a2826db0309aff1723f1b63418257691ff5fad78d8ca66beb";
+let CONTRACT_ADDRESS = "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb";
 
 let level1 = [
   {
