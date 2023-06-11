@@ -24,6 +24,7 @@ mod Level1Factory {
         owner: ContractAddress,
         level1_code_class_hash: ClassHash,
         the_sand_walker_address: ContractAddress,
+        seed_nonce: felt252,
     }
 
     #[constructor]
@@ -55,9 +56,10 @@ mod Level1Factory {
     #[external]
     fn create_instance(ref self: Storage) -> ContractAddress {
         assert(get_caller_address() == self.the_sand_walker_address.read(), 'only sand walker address');
-        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false);
+        let old_seed = self.seed_nonce.read();
+        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), old_seed, ArrayTrait::new().span(), false);
         let mut instance_address: ContractAddress = Zeroable::zero();
-    
+        self.seed_nonce.write(old_seed + 1);
         match res {
             Result::Ok(x) => {let (instance_address, _) = x;},
             Result::Err(revert_reason) => assert(false, 'bad deploy'),
