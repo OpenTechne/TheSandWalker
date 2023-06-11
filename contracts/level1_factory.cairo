@@ -14,6 +14,8 @@ mod Level1Factory {
     use option::OptionTrait;
     use traits::TryInto;
     use starknet::contract_address::Felt252TryIntoContractAddress;
+    use zeroable::Zeroable;
+
 
 
 
@@ -53,7 +55,15 @@ mod Level1Factory {
     #[external]
     fn create_instance(ref self: Storage) -> ContractAddress {
         assert(get_caller_address() == self.the_sand_walker_address.read(), 'only sand walker address');
-        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false).unwrap()
+        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false);
+        let mut instance_address: ContractAddress = Zeroable::zero();
+    
+        match res {
+            Result::Ok(x) => {let (instance_address, _) = x;},
+            Result::Err(revert_reason) => assert(false, 'bad deploy'),
+        };
+
+        instance_address
     }
 
     // Checks if instnace is pwnd and returns true or false
