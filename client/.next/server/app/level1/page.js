@@ -284,7 +284,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 63539:
+/***/ 74186:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -638,7 +638,7 @@ var starknet_dist = __webpack_require__(64406);
 
 
 
-let CONTRACT_ADDRESS = "0x07788534312cf58a2826db0309aff1723f1b63418257691ff5fad78d8ca66beb";
+let CONTRACT_ADDRESS = "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb";
 let level1 = [
     {
         "type": "constructor",
@@ -881,7 +881,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [102,203,910,638], () => (__webpack_exec__(63539)));
+var __webpack_exports__ = __webpack_require__.X(0, [102,203,910,638], () => (__webpack_exec__(74186)));
 module.exports = __webpack_exports__;
 
 })();

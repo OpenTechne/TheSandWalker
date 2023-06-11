@@ -2,6 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     webpack5: false,
+    output: "export",
 
 }
 
