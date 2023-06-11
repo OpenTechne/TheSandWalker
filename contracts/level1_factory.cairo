@@ -51,9 +51,9 @@ mod Level1Factory {
 
     // Deploy instance and returns instance address
     #[external]
-    fn create_instance(ref self: Storage) {
+    fn create_instance(ref self: Storage) -> ContractAddress {
         assert(get_caller_address() == self.the_sand_walker_address.read(), 'only sand walker address');
-        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false);
+        let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false).unwrap()
     }
 
     // Checks if instnace is pwnd and returns true or false
