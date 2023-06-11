@@ -11,7 +11,7 @@ import { Provider, Contract, Account, ec, json } from "starknet";
 
 
 
-let CONTRACT_ADDRESS = "0x0029e5cb007ca0a2d363cfdd1f4d9f612d3911fd03efefc2edb59055f1e07279";
+let CONTRACT_ADDRESS = "0x07788534312cf58a2826db0309aff1723f1b63418257691ff5fad78d8ca66beb";
 
 let level1 = [
   {
@@ -65,16 +65,23 @@ let level1 = [
   },
   {
     "type": "function",
-    "name": "create_instance",
+    "name": "set_level",
     "inputs": [
       {
-        "name": "level",
-        "type": "core::starknet::contract_address::ContractAddress"
+        "name": "_level",
+        "type": "core::felt252"
       }
     ],
+    "outputs": [],
+    "state_mutability": "external"
+  },
+  {
+    "type": "function",
+    "name": "create_instance",
+    "inputs": [],
     "outputs": [
       {
-        "type": "core::starknet::contract_address::ContractAddress"
+        "type": "core::felt252"
       }
     ],
     "state_mutability": "external"
@@ -131,51 +138,14 @@ export default function Level1Page() {
               <button
               className="transition ease-in-out delay-150 hover:scale-110 duration-300 rounded-full border-4 hover:bg-amber-900/40 hover:text-amber-100 hover:border-amber-100 bg-amber-100/40 border-amber-900 shadow-md bg-amber-100/40 text-amber-900 [text-shadow:_2px_2px_2px_rgb(0_0_0_/_20%)] p-4 lg:text-xs"
               onClick={async () => {
-                //initialize Provider
-                //const provider = new Provider({ sequencer: { network: "goerli-alpha" } }); 
-                // connect your account. To adapt to your own account :
-                //const privateKey0 = "0x4803ea3aa53ecad9a8718955f9e77e703df755c7f8629ad4d84958dd9093c5e";
-                //const account0Address = "0x42162e71df514b54168292937662b6bd9053f4395d020b927d4372572473170";
 
-                //const starkKeyPair0 = ec.getKeyPair(privateKey0);
-                //const account0 = new Account(provider, account0Address, starkKeyPair0);
-
-                // Connect the deployed Test contract in Tesnet
-                //const testAddress = CONTRACT_ADDRESS;
-
-                // read abi of Test contract
-                //const { abi: testAbi } = await provider.getClassAt(testAddress);
-                //console.log("connected");
-                //if (testAbi === undefined) { throw new Error("no abi.") };
-                //const myTestContract = new Contract(testAbi, testAddress, provider);
-
-                //await contract.connect(starknet.account);
-
-                // Connect account with the contract
-                //myTestContract.connect(account0);
-                // Interactions with the contract with call & invoke
-                //console.log("The owner =", bal1.res.toString());
-                //const res = await myTestContract.invoke("create_instance", [CONTRACT_ADDRESS]);
-                
-                //const bal2 = await myTestContract.call("get_balance");
-                //console.log("Initial balance =", bal2.res.toString());
-                // const provider = new Provider({ sequencer: { network: "goerli-alpha" } });                
-                // await contract.connect(starknet.account);
-                // const res = await contract.invoke("create_instance", [CONTRACT_ADDRESS]);
-                // await provider.waitForTransaction(res.transaction_hash);
                 await contract.connect(starknet.account);
-                //const own = await contract.invoke("get_owner", []);
                 
-                const r = new Array(CONTRACT_ADDRESS);
+                const r = [CONTRACT_ADDRESS];
                 console.log(typeof r);
                 console.log(r);
-                const ci = await contract.invoke("create_instance", r);
-                console.log(own);
-                //await contract.waitForTransaction(res.transaction_hash);
+                const ci = await contract.invoke("create_instance", []);
 
-                // console.log(starknet)
-
-                // console.log(contract)
                 
               }}
       >Deploy Instance</button>

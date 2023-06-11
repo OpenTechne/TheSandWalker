@@ -18,7 +18,9 @@ mod TheSandWalker {
         // Instance -> level
         instance_level: LegacyMap::<ContractAddress, ContractAddress>,
         // Instance -> true
-        is_instace_pwn: LegacyMap::<ContractAddress, felt252>
+        is_instace_pwn: LegacyMap::<ContractAddress, felt252>,
+
+        level: felt252,
     }
 
     #[constructor]
@@ -43,10 +45,15 @@ mod TheSandWalker {
         self.registered_level.read(level)
     }
 
+    #[external]
+    fn set_level(ref self: Storage, _level: felt252) {
+        self.level.write(_level);
+    }
+
     // Players funcs
     #[external]
-    fn create_instance(ref self: Storage, level_felt: felt252) -> felt252 {
-        let _level: ContractAddress = level_felt.try_into().unwrap();
+    fn create_instance(ref self: Storage) -> felt252 {
+        let _level: ContractAddress = self.level.read().try_into().unwrap();
         // deploy instance for player
         let instance_address: ContractAddress = ILevelDispatcher { contract_address: _level}.create_instance();
 
