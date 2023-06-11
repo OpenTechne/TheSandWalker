@@ -44,6 +44,11 @@ mod Level1Factory {
         self.the_sand_walker_address.write(_the_sand_walker_address);
     }
 
+    #[external]
+    fn get_sand_walker_address(ref self: Storage) -> ContractAddress {
+        self.the_sand_walker_address.read()
+    }
+
     // Deploy instance and returns instance address
     #[external]
     fn create_instance(ref self: Storage) {
