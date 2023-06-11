@@ -27,7 +27,7 @@ mod TheSandWalker {
         self.owner.write(_owner);
     }
 
-    #[view]
+    #[external]
     fn get_owner(ref self: Storage) -> ContractAddress{
         self.owner.read()
     }
@@ -38,7 +38,7 @@ mod TheSandWalker {
         self.registered_level.write(level, 1);
     }
 
-    #[view]
+    #[external]
     fn is_registered_level(ref self: Storage ,level: ContractAddress) -> felt252 {
         self.registered_level.read(level)
     }
