@@ -45,20 +45,22 @@ mod TheSandWalker {
 
     // Players funcs
     #[external]
-    fn create_instance(ref self: Storage, level: felt252) -> ContractAddress {
+    fn create_instance(ref self: Storage, level_felt: felt252) -> felt252 {
+        let _level: ContractAddress = level_felt.try_into().unwrap();
         // deploy instance for player
-        let instance_address: ContractAddress = ILevelDispatcher { contract_address: level}.create_instance();
+        let instance_address: ContractAddress = ILevelDispatcher { contract_address: _level}.create_instance();
 
         // bind player address to instance
         self.instance_player.write(instance_address, get_caller_address());
 
         // bind instance to level
-        self.instance_level.write(instance_address, level);
+        self.instance_level.write(instance_address, _level);
 
         // TODO: EMIT EVENT "NeInstance"
 
         // return instance address
-        instance_address
+        let instance_address_felt: felt252 = instance_address.into();
+        instance_address_felt
     }
 
     #[external]
@@ -90,4 +92,3 @@ mod TheSandWalker {
         fn check_instance(ref self: Storage, instance: ContractAddress) -> felt252;
     }
 }
-
