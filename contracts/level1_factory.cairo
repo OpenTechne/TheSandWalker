@@ -12,17 +12,22 @@ mod Level1Factory {
     use starknet::deploy_syscall;
     use starknet::SyscallResult;
     use option::OptionTrait;
+    use traits::TryInto;
+    use starknet::contract_address::Felt252TryIntoContractAddress;
+
 
 
     #[storage]
     struct Storage {
         owner: ContractAddress,
         level1_code_class_hash: ClassHash,
+        the_sand_walker_address: ContractAddress,
     }
 
     #[constructor]
-    fn constructor(ref self: Storage) {
-        self.owner.write(get_caller_address());
+    fn constructor(ref self: Storage, _owner_felt: felt252) {
+        let _owner: ContractAddress = _owner_felt.try_into().unwrap();
+        self.owner.write(_owner);    
     }
 
     #[external]
@@ -32,9 +37,17 @@ mod Level1Factory {
         self.level1_code_class_hash.write(_class_hash);
     }
 
+    #[external]
+    fn set_sand_walker_address(ref self: Storage, _the_sand_walker_address: felt252){
+        assert(get_caller_address() == self.owner.read(), 'only owner');
+        let _the_sand_walker_address: ContractAddress = _the_sand_walker_address.try_into().unwrap();
+        self.the_sand_walker_address.write(_the_sand_walker_address);
+    }
+
     // Deploy instance and returns instance address
     #[external]
     fn create_instance(ref self: Storage) {
+        assert(get_caller_address() == self.the_sand_walker_address.read(), 'only sand walker address');
         let res: SyscallResult = deploy_syscall(self.level1_code_class_hash.read(), 1 , ArrayTrait::new().span(), false);
     }
 
@@ -89,7 +102,7 @@ mod Level1Code {
         self.is_gate_open.write(1);
     }
 
-    #[view]
+    #[external]
     fn get_is_gate_open(ref self: Storage)-> felt252 {
         self.is_gate_open.read()
     } 
@@ -97,7 +110,7 @@ mod Level1Code {
     #[starknet::interface]
     trait ILevel1Code {
         // Deploy instance and returns instance address
-        fn open_gate(ref self: Storage ,_secret_word: u256);
+        fn open_gate(ref self: Storage ,_secret_word: u64);
         // Checks if instnace is pwnd and returns true or false
         fn get_is_gate_open(ref self: Storage)-> felt252;
     }
