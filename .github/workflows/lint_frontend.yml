@@ -10,7 +10,7 @@ jobs:
     defaults:
       run:
         working-directory: client
-        
+
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3.5.3
@@ -26,6 +26,6 @@ jobs:
           cmd: install
 
       - name: Run linters
-        uses: wearerequired/lint-action@v2.3.0
+        uses: Borales/actions-yarn@v4.2.0
         with:
-          eslint: true
+          cmd: lint
