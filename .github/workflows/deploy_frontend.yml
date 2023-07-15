@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: client
 
     - name: 🚚 Get latest code
