@@ -15,20 +15,20 @@ jobs:
         working-directory: ./client
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3.5.3
       
     - name: ⚙ Set Node.js 19.x
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v3.7.0
       with:
         node-version: 19.x
     
     - name: 🐈 yarn install
-      uses: Borales/actions-yarn@v4
+      uses: Borales/actions-yarn@v4.2.0
       with:
         cmd: install
 
     - name: 👩‍🔧 yarn build
-      uses: Borales/actions-yarn@v4
+      uses: Borales/actions-yarn@v4.2.0
       with:
         cmd: build
     
