@@ -1,7 +1,12 @@
-*/node_modules
-node_modules/
+# node modules
+*node_modules
 
+# environment
+*.env
+
+# next.js
 */swc/
 .swc/
-*.env
-*/.env
+client/out
+client/.next
+
