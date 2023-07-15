@@ -9,7 +9,7 @@ export default function LevelsPage() {
         <h2 className="pb-3 text-center text-5xl text-amber-100 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_50%)]">GAME LEVELS</h2>
         <div className=" flex flex-col gap-2 items-center justify-center p-2 lg:p-5 max-w-screen-xl">
           <p className="rounded-3xl text-center text-amber-900 text-xs lg:text-sm">
-            Welcome to the distopic realm of "The SandWalker". In this heart-pounding video game experience, you'll assume the role of a skilled Cairo hacker, venturing into the vast reaches of
+            Welcome to the distopic realm of &quot;The SandWalker&quot;. In this heart-pounding video game experience, you'll assume the role of a skilled Cairo hacker, venturing into the vast reaches of
             Starknet. Each level is a smart contract that needs to be 'hacked'. The entire game is inspired by OpenZeppelin's{" "}
             <a href="https://ethernaut.openzeppelin.com/" style={{ color: "firebrick" }} target="_blank" rel="noopener noreferrer">
               The Ethernaut
