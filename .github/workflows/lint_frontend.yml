@@ -4,12 +4,10 @@ on:
       - main
 name:  🔎 Check Linting
 jobs:
-  lint-fronted:
+  lint-frontend:
     name: 🔎 Run linters
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./client
+        
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3.5.3
@@ -28,3 +26,5 @@ jobs:
         uses: wearerequired/lint-action@v2.3.0
         with:
           eslint: true
+          eslint_args: "--max-warnings 0"
+          eslint_dir: "client"
