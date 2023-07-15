@@ -2,14 +2,15 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "client/**"
+
 name:  🔎 Check Linting
 jobs:
-  lint-fronted:
+  lint-frontend:
     name: 🔎 Run linters
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./client
+        
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3.5.3
@@ -24,7 +25,7 @@ jobs:
         with:
           cmd: install
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2.3.0
+      - name: 🐈 yarn install
+        uses: Borales/actions-yarn@v4.2.0
         with:
-          eslint: true
+          cmd: workspace thesandwalkerclient lint --max-warnings 0
