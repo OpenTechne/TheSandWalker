@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./client
+        working-directory: client
+        
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3.5.3
