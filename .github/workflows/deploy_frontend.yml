@@ -1,0 +1,40 @@
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "client/**"
+    types: [closed]
+
+name: 🚀 Deploy website on push
+jobs:
+  deploy-frontend:
+    #if: github.event.pull_request.merged == true
+    name: 🎉 Deploy Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3.5.3
+        
+      - name: ⚙ Set Node.js 19.x
+        uses: actions/setup-node@v3.7.0
+        with:
+          node-version: 19.x
+      
+      - name: 🐈 yarn install
+        uses: Borales/actions-yarn@v4.2.0
+        with:
+          cmd: install
+
+      - name: 👩‍🔧 yarn build
+        uses: Borales/actions-yarn@v4.2.0
+        with:
+          cmd: workspace thesandwalkerclient build
+      
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.sandwalker.xyz
+          username: opentechne@sandwalker.xyz
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./client/out/

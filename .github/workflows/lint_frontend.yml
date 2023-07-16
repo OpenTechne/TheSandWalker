@@ -1,0 +1,32 @@
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "client/**"
+
+name:  🔎 Check Linting
+jobs:
+  lint-frontend:
+    name: 🔎 Run linter
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3.5.3
+        
+      - name: ⚙ Set Node.js 19.x
+        uses: actions/setup-node@v3.7.0
+        with:
+          node-version: 19.x
+
+      - name: 🐈 yarn install
+        uses: Borales/actions-yarn@v4.2.0
+        with:
+          cmd: install
+
+      - name: 🔎 Run linter
+        uses: Borales/actions-yarn@v4.2.0
+        with:
+          cmd: workspace thesandwalkerclient lint --max-warnings 0
+          
