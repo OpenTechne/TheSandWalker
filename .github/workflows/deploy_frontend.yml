@@ -27,7 +27,7 @@ jobs:
       - name: 👩‍🔧 yarn build
         uses: Borales/actions-yarn@v4.2.0
         with:
-          cmd: build
+          cmd: workspaces run build
       
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -35,4 +35,4 @@ jobs:
           server: ftp.sandwalker.xyz
           username: opentechne@sandwalker.xyz
           password: ${{ secrets.ftp_password }}
-          local-dir: ./out/
+          local-dir: ./client/out/
