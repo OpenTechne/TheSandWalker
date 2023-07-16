@@ -28,5 +28,5 @@ jobs:
       - name: 🐈 yarn install
         uses: Borales/actions-yarn@v4.2.0
         with:
-          cmd: workspaces run lint --max-warnings 0
+          cmd: workspace thesandwalkerclient lint --max-warnings 0
           
