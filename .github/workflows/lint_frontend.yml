@@ -29,3 +29,4 @@ jobs:
         uses: Borales/actions-yarn@v4.2.0
         with:
           cmd: workspace thesandwalkerclient lint --max-warnings 0
+          
