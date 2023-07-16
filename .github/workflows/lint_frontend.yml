@@ -2,6 +2,9 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "client/**"
+
 name:  🔎 Check Linting
 jobs:
   lint-frontend:
@@ -26,3 +29,4 @@ jobs:
         uses: Borales/actions-yarn@v4.2.0
         with:
           cmd: workspaces run lint --max-warnings 0
+          

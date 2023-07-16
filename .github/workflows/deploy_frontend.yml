@@ -2,12 +2,14 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "client/**"
     types: [closed]
 
 name: 🚀 Deploy website on push
 jobs:
-  deploy-fronted:
-    if: github.event.pull_request.merged == true
+  deploy-frontend:
+    #if: github.event.pull_request.merged == true
     name: 🎉 Deploy Frontend
     runs-on: ubuntu-latest
     steps:
@@ -36,3 +38,4 @@ jobs:
           username: opentechne@sandwalker.xyz
           password: ${{ secrets.ftp_password }}
           local-dir: ./client/out/
+          
