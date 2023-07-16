@@ -4,14 +4,10 @@ on:
       - main
 name:  🔎 Check Linting
 jobs:
-  lint-fronted:
+  lint-frontend:
     name: 🔎 Run linters
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: client
-
+        
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3.5.3
@@ -29,4 +25,6 @@ jobs:
       - name: Run linters
         uses: Borales/actions-yarn@v4.2.0
         with:
-          cmd: lint
+          eslint: true
+          eslint_args: "--max-warnings 0"
+          eslint_dir: "client"
