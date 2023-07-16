@@ -22,9 +22,7 @@ jobs:
         with:
           cmd: install
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2.3.0
+      - name: 🐈 yarn install
+        uses: Borales/actions-yarn@v4.2.0
         with:
-          eslint: true
-          eslint_args: "--max-warnings 0"
-          eslint_dir: "client"
+          cmd: workspaces run lint --max-warnings 0
