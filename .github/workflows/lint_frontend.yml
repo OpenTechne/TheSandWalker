@@ -23,7 +23,7 @@ jobs:
           cmd: install
 
       - name: Run linters
-        uses: Borales/actions-yarn@v4.2.0
+        uses: wearerequired/lint-action@v2.3.0
         with:
           eslint: true
           eslint_args: "--max-warnings 0"
