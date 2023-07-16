@@ -8,7 +8,7 @@ on:
 name:  🔎 Check Linting
 jobs:
   lint-frontend:
-    name: 🔎 Run linters
+    name: 🔎 Run linter
     runs-on: ubuntu-latest
         
     steps:
@@ -25,7 +25,7 @@ jobs:
         with:
           cmd: install
 
-      - name: 🐈 yarn install
+      - name: 🔎 Run linter
         uses: Borales/actions-yarn@v4.2.0
         with:
           cmd: workspace thesandwalkerclient lint --max-warnings 0
