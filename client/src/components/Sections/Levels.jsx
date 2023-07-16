@@ -14,7 +14,7 @@ export default function LevelsPage() {
             <a href="https://ethernaut.openzeppelin.com/" style={{ color: "firebrick" }} target="_blank" rel="noopener noreferrer">
               The Ethernaut
             </a>
-            . It's 100% open source and all levels are contributions made by other players.
+            . It&apos;s 100% open source and all levels are contributions made by other players.
           </p>
         </div>
         <div className="flex flex-col items-center justify-center m-2">
