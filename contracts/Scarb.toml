@@ -1,0 +1,9 @@
+[package]
+name = "the_sand_walker_contracts"
+version = "0.1.0"
+
+[dependencies]
+starknet = ">=2.0.0-rc0"
+# test [dependencies]
+alexandria = { git = "https://github.com/keep-starknet-strange/alexandria.git" }
+
