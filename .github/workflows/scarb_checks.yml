@@ -1,0 +1,29 @@
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "contracts/**"
+
+name:  🔎 Scarb checks
+jobs:
+  scarb-checks:
+    name: 🔎 Scarb checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3.5.3
+
+      - name: ⚙ Set scarb
+        uses: software-mansion/setup-scarb@v1.0.1
+        with:
+          scarb-version: "0.5.2"
+      
+      - name: 🔎 Check fmt
+        run: scarb fmt --check
+
+      - name: 🔎 Run tests
+        run: scarb test
