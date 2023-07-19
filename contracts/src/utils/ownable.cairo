@@ -4,7 +4,7 @@ use starknet::info::get_caller_address;
 
 #[starknet::contract_state(OwnableState)]
 struct OwnableStorage {
-    owner: ContractAddress,
+    owner: ContractAddress, 
 }
 
 #[starknet::interface]
@@ -15,8 +15,9 @@ trait IOwnable<TContractState> {
 }
 
 #[starknet::component]
-impl OwnableImpl<TContractState , impl I: GetComponent<TContractState, OwnableState>> of IOwnable<TContractState> {
-    
+impl OwnableImpl<
+    TContractState, impl I: GetComponent<TContractState, OwnableState>
+> of IOwnable<TContractState> {
     fn owner(self: @TContractState) -> ContractAddress {
         self.component_snap().owner.read()
     }
@@ -31,6 +32,4 @@ impl OwnableImpl<TContractState , impl I: GetComponent<TContractState, OwnableSt
         self.component_snap().owner.write(new_owner);
     }
 }
-
-
 

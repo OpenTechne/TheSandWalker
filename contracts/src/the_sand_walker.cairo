@@ -3,19 +3,16 @@ use starknet::ContractAddress;
 // TheSandWalker Interface 
 #[starknet::interface]
 trait ITheSandWalker<TContractState> {
-    
     // Admin functions
     fn owner(self: @TContractState) -> ContractAddress;
     fn transfer_ownership(ref self: TContractState, new_owner: ContractAddress);
-
-    // Players functions
-    // TODO 
+// Players functions
+// TODO 
 }
 
 
 #[starknet::contract]
-mod TheSandWalker{
-
+mod TheSandWalker {
     use starknet::ContractAddress;
 
     #[storage]
@@ -24,7 +21,6 @@ mod TheSandWalker{
     }
 
     impl TheSandWalkerImpl of super::ITheSandWalker<ContractState> {
-
         fn owner(self: @ContractState) -> ContractAddress {
             self._owner.read()
         }
@@ -32,8 +28,5 @@ mod TheSandWalker{
         fn transfer_ownership(ref self: ContractState, new_owner: ContractAddress) {
             self._owner.write(new_owner);
         }
-
     }
-
-
 }
