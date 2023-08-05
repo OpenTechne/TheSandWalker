@@ -1,8 +1,16 @@
 "use client";
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import TryLevel from "@/components/Buttons/TryLevel";
+import React, { useState } from 'react';
+import levelData from '../../../levels_data/levelData.json';
 
 export default function LevelsPage() {
+  const [selectedLevel, setSelectedLevel] = useState(null);
+  console.log(selectedLevel);
+  const router = useRouter();
+
+  
   return (
     <div className="relative flex h-screen flex-col items-center gap-5 justify-center bg-levels bg-cover">
       <div className="rounded-3xl bg-white/20 p-5">
@@ -19,28 +27,17 @@ export default function LevelsPage() {
         </div>
         <div className="flex flex-col items-center justify-center m-2">
           <ul className="rounded-3xl shadow-sm flex flex-row lg:flex-nowrap flex-wrap gap-5 max-w-screen-lg">
-            <li className="rounded-3xl  border-amber-100 border-4 p-5 flex flex-col justify-center items-center gap-2 text-amber-100 shadow-md backdrop-blur-2xl">
-              <p className="text-2xl p-2 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_50%)]">LVL 1</p>
-              <Image alt="" className="rounded-2xl shadow-sm opacity-60" src="/level-one.jpg" width={400} height={400} />
-              <p className="text-xs text-center text-amber-900">In this game you should be able to escape from the pyramids of the desert. Let&apos;s see if you can crack the code!</p>
-              <TryLevel />
-            </li>
-            <li className="rounded-3xl border-white p-5 flex flex-col justify-center items-center gap-2 text-amber-100 shadow-md backdrop-blur-md">
-              <p className="text-2xl p-2 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_50%)]">LVL 2</p>
-              <Image alt="" className="rounded-2xl shadow-sm opacity-60" src="/locked.jpg" width={400} height={400} />
-              <p className="text-xs text-center text-amber-900">In this game you should be able to escape from the pyramids of the desert. Let&apos;s see if you can crack the code!</p>
-              <div className="flex w-full justify-center">
-                <button className="opacity-60 rounded-full border-4 border-amber-100 shadow-md bg-amber-900 text-white [text-shadow:_1px_1px_1px_rgb(0_0_0_/_50%)] p-2 lg:text-md">Locked🔒</button>
-              </div>
-            </li>
-            <li className="rounded-3xl border-white p-5 flex flex-col justify-center items-center gap-2 text-amber-100 shadow-md backdrop-blur-md">
-              <p className="text-2xl p-2 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_50%)]">LVL 3</p>
-              <Image alt="" className="rounded-2xl shadow-sm opacity-60" src="/locked.jpg" width={400} height={400} />
-              <p className="text-xs text-center text-amber-900">In this game you should be able to escape from the pyramids of the desert. Let&apos;s see if you can crack the code!</p>
-              <div className="flex w-full justify-center">
-                <button className="opacity-60 rounded-full border-4 border-amber-100 shadow-md bg-amber-900 text-white [text-shadow:_2px_2px_2px_rgb(0_0_0_/_20%)] p-2 lg:text-md">Locked🔒</button>
-              </div>
-            </li>
+            {levelData.map((level) => (
+              <li key={level.level} className="rounded-3xl  border-amber-100 border-4 p-5 flex flex-col justify-center items-center gap-2 text-amber-100 shadow-md backdrop-blur-2xl">
+                <p className="text-2xl p-2 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_50%)]">LVL {level.level}</p>
+                <div className="w-60 h-60 relative">
+                  <Image alt="" className="rounded-2xl shadow-sm opacity-60" src={`/level-${level.level}.jpg`} width={ 400  } height={ 400 } />
+                </div>
+                <p className="text-xs text-center text-amber-900">{level.description}</p>
+                <button className="transition ease-in-out delay-150 hover:scale-110 duration-300 rounded-full border-4 hover:bg-amber-900 hover:text-amber-100 hover:border-amber-100 bg-amber-100 shadow-md text-amber-900 border-amber-900 [text-shadow:_2px_2px_2px_rgb(0_0_0_/_20%)] p-2 lg:text-md" 
+                onClick={() => router.push(`/level/${level.level}`)}>Play level</button>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

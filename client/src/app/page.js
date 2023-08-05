@@ -1,6 +1,5 @@
 "use client";
 
-
 import Image from "next/image";
 import Start from "@/components/Buttons/Start";
 import Levels from "@/components/Sections/Levels";
