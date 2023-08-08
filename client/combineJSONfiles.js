@@ -1,18 +1,17 @@
-// combineJsonFiles.js
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
-export function readJSONFile(filePath) {
+function readJSONFile(filePath) {
   const fileContent = fs.readFileSync(filePath, 'utf8');
   return JSON.parse(fileContent);
 }
 
-export function getJSONFilesFromFolder(folderPath) {
+function getJSONFilesFromFolder(folderPath) {
   const files = fs.readdirSync(folderPath);
   return files.filter(file => path.extname(file) === '.json');
 }
 
-export function combineJSONFiles(inputFolder, outputFile) {
+function combineJSONFiles(inputFolder, outputFile) {
   const jsonFiles = getJSONFilesFromFolder(inputFolder);
 
   const combinedData = {};
@@ -32,3 +31,9 @@ export function combineJSONFiles(inputFolder, outputFile) {
   fs.writeFileSync(outputFile, JSON.stringify(sortedData, null, 2), 'utf8');
   console.log('Datos combinados y ordenados en el archivo:', outputFile);
 }
+
+module.exports = {
+  readJSONFile,
+  getJSONFilesFromFolder,
+  combineJSONFiles
+};

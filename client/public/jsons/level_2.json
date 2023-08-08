@@ -1,0 +1,10 @@
+[
+    {
+      "level": "",
+      "title": "Put something on there",
+      "description": "Some bla bla goes in there.",
+      "code": "YOUR_SMART_CONTRACT_CODE",
+      "contractAddress": "YOUR_CONTRACT_ADDRESS",
+      "abi": "LEVEL_ABI"
+    }
+  ]

@@ -1,0 +1,176 @@
+{
+  "levelData": {
+    "levelData": {
+      "levelData": {
+        "levelData": {
+          "levelData": {
+            "levelData": {
+              "levelData": {
+                "level_1": [
+                  {
+                    "level": "1",
+                    "title": "The Elder Door",
+                    "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+                    "code": "YOUR_SMART_CONTRACT_CODE",
+                    "contractAddress": "YOUR_CONTRACT_ADDRESS",
+                    "abi": "LEVEL_ABI"
+                  }
+                ],
+                "level_2": [
+                  {
+                    "level": "",
+                    "title": "Put something on there",
+                    "description": "Some bla bla goes in there.",
+                    "code": "YOUR_SMART_CONTRACT_CODE",
+                    "contractAddress": "YOUR_CONTRACT_ADDRESS",
+                    "abi": "LEVEL_ABI"
+                  }
+                ]
+              },
+              "level_1": [
+                {
+                  "level": "1",
+                  "title": "The Elder Door",
+                  "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+                  "code": "YOUR_SMART_CONTRACT_CODE",
+                  "contractAddress": "YOUR_CONTRACT_ADDRESS",
+                  "abi": "LEVEL_ABI"
+                }
+              ],
+              "level_2": [
+                {
+                  "level": "",
+                  "title": "Put something on there",
+                  "description": "Some bla bla goes in there.",
+                  "code": "YOUR_SMART_CONTRACT_CODE",
+                  "contractAddress": "YOUR_CONTRACT_ADDRESS",
+                  "abi": "LEVEL_ABI"
+                }
+              ]
+            },
+            "level_1": [
+              {
+                "level": "1",
+                "title": "The Elder Door",
+                "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+                "code": "YOUR_SMART_CONTRACT_CODE",
+                "contractAddress": "YOUR_CONTRACT_ADDRESS",
+                "abi": "LEVEL_ABI"
+              }
+            ],
+            "level_2": [
+              {
+                "level": "",
+                "title": "Put something on there",
+                "description": "Some bla bla goes in there.",
+                "code": "YOUR_SMART_CONTRACT_CODE",
+                "contractAddress": "YOUR_CONTRACT_ADDRESS",
+                "abi": "LEVEL_ABI"
+              }
+            ]
+          },
+          "level_1": [
+            {
+              "level": "1",
+              "title": "The Elder Door",
+              "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+              "code": "YOUR_SMART_CONTRACT_CODE",
+              "contractAddress": "YOUR_CONTRACT_ADDRESS",
+              "abi": "LEVEL_ABI"
+            }
+          ],
+          "level_2": [
+            {
+              "level": "",
+              "title": "Put something on there",
+              "description": "Some bla bla goes in there.",
+              "code": "YOUR_SMART_CONTRACT_CODE",
+              "contractAddress": "YOUR_CONTRACT_ADDRESS",
+              "abi": "LEVEL_ABI"
+            }
+          ]
+        },
+        "level_1": [
+          {
+            "level": "1",
+            "title": "The Elder Door",
+            "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+            "code": "YOUR_SMART_CONTRACT_CODE",
+            "contractAddress": "YOUR_CONTRACT_ADDRESS",
+            "abi": "LEVEL_ABI"
+          }
+        ],
+        "level_2": [
+          {
+            "level": "",
+            "title": "Put something on there",
+            "description": "Some bla bla goes in there.",
+            "code": "YOUR_SMART_CONTRACT_CODE",
+            "contractAddress": "YOUR_CONTRACT_ADDRESS",
+            "abi": "LEVEL_ABI"
+          }
+        ]
+      },
+      "level_1": [
+        {
+          "level": "1",
+          "title": "The Elder Door",
+          "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+          "code": "YOUR_SMART_CONTRACT_CODE",
+          "contractAddress": "YOUR_CONTRACT_ADDRESS",
+          "abi": "LEVEL_ABI"
+        }
+      ],
+      "level_2": [
+        {
+          "level": "",
+          "title": "Put something on there",
+          "description": "Some bla bla goes in there.",
+          "code": "YOUR_SMART_CONTRACT_CODE",
+          "contractAddress": "YOUR_CONTRACT_ADDRESS",
+          "abi": "LEVEL_ABI"
+        }
+      ]
+    },
+    "level_1": [
+      {
+        "level": "1",
+        "title": "The Elder Door",
+        "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+        "code": "YOUR_SMART_CONTRACT_CODE",
+        "contractAddress": "YOUR_CONTRACT_ADDRESS",
+        "abi": "LEVEL_ABI"
+      }
+    ],
+    "level_2": [
+      {
+        "level": "",
+        "title": "Put something on there",
+        "description": "Some bla bla goes in there.",
+        "code": "YOUR_SMART_CONTRACT_CODE",
+        "contractAddress": "YOUR_CONTRACT_ADDRESS",
+        "abi": "LEVEL_ABI"
+      }
+    ]
+  },
+  "level_1": [
+    {
+      "level": "1",
+      "title": "The Elder Door",
+      "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+      "code": "YOUR_SMART_CONTRACT_CODE",
+      "contractAddress": "YOUR_CONTRACT_ADDRESS",
+      "abi": "LEVEL_ABI"
+    }
+  ],
+  "level_2": [
+    {
+      "level": "",
+      "title": "Put something on there",
+      "description": "Some bla bla goes in there.",
+      "code": "YOUR_SMART_CONTRACT_CODE",
+      "contractAddress": "YOUR_CONTRACT_ADDRESS",
+      "abi": "LEVEL_ABI"
+    }
+  ]
+}
