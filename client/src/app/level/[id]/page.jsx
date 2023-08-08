@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import Start from "@/components/Buttons/Start";
-import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ConnectWallet } from '../../utils';
-import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 import { StarknetConfig, InjectedConnector, useContract} from '@starknet-react/core';
 import { Provider, Contract, Account, ec, json } from "starknet";
 import { useRouter } from 'next/navigation';
 import levelData from '../../../../levels_data/levelData.json';
 import React, { useState } from 'react';
-import TextFileViewer from "@/components/Sections/TextFileViewer";
+import FileReader from "@/app/level/[id]/FileReader";
 
 const connectors = [
   new InjectedConnector({ options: { id: 'braavos' } }),
@@ -64,10 +62,7 @@ export default function LevelPage({ params }) {
             
             <li className="rounded-3xl border-white bg-[#333] p-3 text-center text-white shadow-md backdrop-blur-md lg:p-5 lg:text-lg">
               <p className="text-3xl p-2  text-amber-100">SMARTCONTRACT</p>
-              <SyntaxHighlighter language="rust" className=" text-left text-xs" style={agate}>
-              {<TextFileViewer />}
-    
-            </SyntaxHighlighter>  
+              <FileReader id={id} />  
             </li>
             </ul>
 
