@@ -1,134 +1,204 @@
 {
   "levelData": {
     "levelData": {
-      "levelData": {
-        "levelData": {
-          "levelData": {
-            "levelData": {
-              "levelData": {
-                "level_1": [
-                  {
-                    "level": "1",
-                    "title": "The Elder Door",
-                    "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-                    "code": "YOUR_SMART_CONTRACT_CODE",
-                    "contractAddress": "YOUR_CONTRACT_ADDRESS",
-                    "abi": "LEVEL_ABI"
-                  }
-                ],
-                "level_2": [
-                  {
-                    "level": "",
-                    "title": "Put something on there",
-                    "description": "Some bla bla goes in there.",
-                    "code": "YOUR_SMART_CONTRACT_CODE",
-                    "contractAddress": "YOUR_CONTRACT_ADDRESS",
-                    "abi": "LEVEL_ABI"
-                  }
-                ]
-              },
-              "level_1": [
-                {
-                  "level": "1",
-                  "title": "The Elder Door",
-                  "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-                  "code": "YOUR_SMART_CONTRACT_CODE",
-                  "contractAddress": "YOUR_CONTRACT_ADDRESS",
-                  "abi": "LEVEL_ABI"
-                }
-              ],
-              "level_2": [
-                {
-                  "level": "",
-                  "title": "Put something on there",
-                  "description": "Some bla bla goes in there.",
-                  "code": "YOUR_SMART_CONTRACT_CODE",
-                  "contractAddress": "YOUR_CONTRACT_ADDRESS",
-                  "abi": "LEVEL_ABI"
-                }
-              ]
-            },
-            "level_1": [
-              {
-                "level": "1",
-                "title": "The Elder Door",
-                "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-                "code": "YOUR_SMART_CONTRACT_CODE",
-                "contractAddress": "YOUR_CONTRACT_ADDRESS",
-                "abi": "LEVEL_ABI"
-              }
-            ],
-            "level_2": [
-              {
-                "level": "",
-                "title": "Put something on there",
-                "description": "Some bla bla goes in there.",
-                "code": "YOUR_SMART_CONTRACT_CODE",
-                "contractAddress": "YOUR_CONTRACT_ADDRESS",
-                "abi": "LEVEL_ABI"
-              }
-            ]
-          },
-          "level_1": [
-            {
-              "level": "1",
-              "title": "The Elder Door",
-              "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-              "code": "YOUR_SMART_CONTRACT_CODE",
-              "contractAddress": "YOUR_CONTRACT_ADDRESS",
-              "abi": "LEVEL_ABI"
-            }
-          ],
-          "level_2": [
-            {
-              "level": "",
-              "title": "Put something on there",
-              "description": "Some bla bla goes in there.",
-              "code": "YOUR_SMART_CONTRACT_CODE",
-              "contractAddress": "YOUR_CONTRACT_ADDRESS",
-              "abi": "LEVEL_ABI"
-            }
-          ]
-        },
-        "level_1": [
-          {
-            "level": "1",
-            "title": "The Elder Door",
-            "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-            "code": "YOUR_SMART_CONTRACT_CODE",
-            "contractAddress": "YOUR_CONTRACT_ADDRESS",
-            "abi": "LEVEL_ABI"
-          }
-        ],
-        "level_2": [
-          {
-            "level": "",
-            "title": "Put something on there",
-            "description": "Some bla bla goes in there.",
-            "code": "YOUR_SMART_CONTRACT_CODE",
-            "contractAddress": "YOUR_CONTRACT_ADDRESS",
-            "abi": "LEVEL_ABI"
-          }
-        ]
-      },
       "level_1": [
         {
           "level": "1",
           "title": "The Elder Door",
           "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-          "code": "YOUR_SMART_CONTRACT_CODE",
-          "contractAddress": "YOUR_CONTRACT_ADDRESS",
-          "abi": "LEVEL_ABI"
+          "contractAddress": "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb",
+          "abi": [
+            {
+              "type": "constructor",
+              "name": "constructor",
+              "inputs": [
+                {
+                  "name": "_owner_felt",
+                  "type": "core::felt252"
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "name": "get_owner",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "register_level",
+              "inputs": [
+                {
+                  "name": "level",
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "is_registered_level",
+              "inputs": [
+                {
+                  "name": "level",
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "outputs": [
+                {
+                  "type": "core::felt252"
+                }
+              ],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "set_level",
+              "inputs": [
+                {
+                  "name": "_level",
+                  "type": "core::felt252"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "create_instance",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::felt252"
+                }
+              ],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "submit_instance",
+              "inputs": [
+                {
+                  "name": "instance",
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "event",
+              "name": "the_sand_walker::the_sand_walker::TheSandWalker::Event",
+              "kind": "enum",
+              "variants": []
+            }
+          ]
         }
       ],
       "level_2": [
         {
-          "level": "",
-          "title": "Put something on there",
-          "description": "Some bla bla goes in there.",
-          "code": "YOUR_SMART_CONTRACT_CODE",
-          "contractAddress": "YOUR_CONTRACT_ADDRESS",
-          "abi": "LEVEL_ABI"
+          "level": "1",
+          "title": "The Elder Door",
+          "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+          "contractAddress": "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb",
+          "abi": [
+            {
+              "type": "constructor",
+              "name": "constructor",
+              "inputs": [
+                {
+                  "name": "_owner_felt",
+                  "type": "core::felt252"
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "name": "get_owner",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "register_level",
+              "inputs": [
+                {
+                  "name": "level",
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "is_registered_level",
+              "inputs": [
+                {
+                  "name": "level",
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "outputs": [
+                {
+                  "type": "core::felt252"
+                }
+              ],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "set_level",
+              "inputs": [
+                {
+                  "name": "_level",
+                  "type": "core::felt252"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "create_instance",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::felt252"
+                }
+              ],
+              "state_mutability": "external"
+            },
+            {
+              "type": "function",
+              "name": "submit_instance",
+              "inputs": [
+                {
+                  "name": "instance",
+                  "type": "core::starknet::contract_address::ContractAddress"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "external"
+            },
+            {
+              "type": "event",
+              "name": "the_sand_walker::the_sand_walker::TheSandWalker::Event",
+              "kind": "enum",
+              "variants": []
+            }
+          ]
         }
       ]
     },
@@ -137,19 +207,199 @@
         "level": "1",
         "title": "The Elder Door",
         "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-        "code": "YOUR_SMART_CONTRACT_CODE",
-        "contractAddress": "YOUR_CONTRACT_ADDRESS",
-        "abi": "LEVEL_ABI"
+        "contractAddress": "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb",
+        "abi": [
+          {
+            "type": "constructor",
+            "name": "constructor",
+            "inputs": [
+              {
+                "name": "_owner_felt",
+                "type": "core::felt252"
+              }
+            ]
+          },
+          {
+            "type": "function",
+            "name": "get_owner",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "register_level",
+            "inputs": [
+              {
+                "name": "level",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "is_registered_level",
+            "inputs": [
+              {
+                "name": "level",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "set_level",
+            "inputs": [
+              {
+                "name": "_level",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "create_instance",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "submit_instance",
+            "inputs": [
+              {
+                "name": "instance",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "event",
+            "name": "the_sand_walker::the_sand_walker::TheSandWalker::Event",
+            "kind": "enum",
+            "variants": []
+          }
+        ]
       }
     ],
     "level_2": [
       {
-        "level": "",
-        "title": "Put something on there",
-        "description": "Some bla bla goes in there.",
-        "code": "YOUR_SMART_CONTRACT_CODE",
-        "contractAddress": "YOUR_CONTRACT_ADDRESS",
-        "abi": "LEVEL_ABI"
+        "level": "1",
+        "title": "The Elder Door",
+        "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+        "contractAddress": "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb",
+        "abi": [
+          {
+            "type": "constructor",
+            "name": "constructor",
+            "inputs": [
+              {
+                "name": "_owner_felt",
+                "type": "core::felt252"
+              }
+            ]
+          },
+          {
+            "type": "function",
+            "name": "get_owner",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "register_level",
+            "inputs": [
+              {
+                "name": "level",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "is_registered_level",
+            "inputs": [
+              {
+                "name": "level",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "set_level",
+            "inputs": [
+              {
+                "name": "_level",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "create_instance",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "submit_instance",
+            "inputs": [
+              {
+                "name": "instance",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "event",
+            "name": "the_sand_walker::the_sand_walker::TheSandWalker::Event",
+            "kind": "enum",
+            "variants": []
+          }
+        ]
       }
     ]
   },
@@ -158,19 +408,199 @@
       "level": "1",
       "title": "The Elder Door",
       "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
-      "code": "YOUR_SMART_CONTRACT_CODE",
-      "contractAddress": "YOUR_CONTRACT_ADDRESS",
-      "abi": "LEVEL_ABI"
+      "contractAddress": "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb",
+      "abi": [
+        {
+          "type": "constructor",
+          "name": "constructor",
+          "inputs": [
+            {
+              "name": "_owner_felt",
+              "type": "core::felt252"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "get_owner",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "register_level",
+          "inputs": [
+            {
+              "name": "level",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "is_registered_level",
+          "inputs": [
+            {
+              "name": "level",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "set_level",
+          "inputs": [
+            {
+              "name": "_level",
+              "type": "core::felt252"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "create_instance",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "submit_instance",
+          "inputs": [
+            {
+              "name": "instance",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "event",
+          "name": "the_sand_walker::the_sand_walker::TheSandWalker::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
     }
   ],
   "level_2": [
     {
-      "level": "",
-      "title": "Put something on there",
-      "description": "Some bla bla goes in there.",
-      "code": "YOUR_SMART_CONTRACT_CODE",
-      "contractAddress": "YOUR_CONTRACT_ADDRESS",
-      "abi": "LEVEL_ABI"
+      "level": "1",
+      "title": "The Elder Door",
+      "description": "In this level, you should be able to get the code to unlock the door and get out from the pyramid.",
+      "contractAddress": "0x07788534312CF58A2826Db0309Aff1723f1b63418257691Ff5fAD78D8Ca66Beb",
+      "abi": [
+        {
+          "type": "constructor",
+          "name": "constructor",
+          "inputs": [
+            {
+              "name": "_owner_felt",
+              "type": "core::felt252"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "get_owner",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "register_level",
+          "inputs": [
+            {
+              "name": "level",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "is_registered_level",
+          "inputs": [
+            {
+              "name": "level",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "set_level",
+          "inputs": [
+            {
+              "name": "_level",
+              "type": "core::felt252"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "create_instance",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "external"
+        },
+        {
+          "type": "function",
+          "name": "submit_instance",
+          "inputs": [
+            {
+              "name": "instance",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "external"
+        },
+        {
+          "type": "event",
+          "name": "the_sand_walker::the_sand_walker::TheSandWalker::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
     }
   ]
 }

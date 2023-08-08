@@ -7,7 +7,7 @@ import levelData from '../../../levels_data/levelData.json';
 
 export default function LevelsPage() {
   const [selectedLevel, setSelectedLevel] = useState(null);
-  console.log(selectedLevel);
+  //console.log()
   const router = useRouter();
 
   
