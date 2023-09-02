@@ -1,48 +1,12 @@
-{
-  "levelData": {
-    "levelData": {
-      "levelData": {
-        "level_1": {
-          "nombre": "Juan",
-          "edad": 25,
-          "ciudad": "Madrid"
-        },
-        "level_2": {
-          "nombre": "Maria",
-          "edad": 25,
-          "ciudad": "Madrid"
-        }
-      },
-      "level_1": {
-        "nombre": "Juan",
-        "edad": 25,
-        "ciudad": "Madrid"
-      },
-      "level_2": {
-        "nombre": "Maria",
-        "edad": 25,
-        "ciudad": "Madrid"
-      }
-    },
-    "level_1": {
-      "nombre": "Juan",
-      "edad": 25,
-      "ciudad": "Madrid"
-    },
-    "level_2": {
-      "nombre": "Maria",
-      "edad": 25,
-      "ciudad": "Madrid"
-    }
-  },
-  "level_1": {
+[
+  {
     "nombre": "Juan",
     "edad": 25,
     "ciudad": "Madrid"
   },
-  "level_2": {
+  {
     "nombre": "Maria",
     "edad": 25,
     "ciudad": "Madrid"
   }
-}
+]

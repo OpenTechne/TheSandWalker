@@ -14,21 +14,16 @@ function getJSONFilesFromFolder(folderPath) {
 function combineJSONFiles(inputFolder, outputFile) {
   const jsonFiles = getJSONFilesFromFolder(inputFolder);
 
-  const combinedData = {};
+  const combinedData = [];
 
   jsonFiles.forEach(file => {
     const filePath = path.join(inputFolder, file);
     const jsonData = readJSONFile(filePath);
-    const fileNameWithoutExtension = file.split('.json')[0];
-    combinedData[fileNameWithoutExtension] = jsonData;
+    combinedData.push(jsonData);
   });
 
-  const sortedData = {};
-  Object.keys(combinedData).sort().forEach(key => {
-    sortedData[key] = combinedData[key];
-  });
 
-  fs.writeFileSync(outputFile, JSON.stringify(sortedData, null, 2), 'utf8');
+  fs.writeFileSync(outputFile, JSON.stringify(combinedData, null, 2), 'utf8');
   console.log('Datos combinados y ordenados en el archivo:', outputFile);
 }
 
